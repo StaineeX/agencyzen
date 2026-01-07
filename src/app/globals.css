@@ -1,0 +1,478 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   AgencyZen v3 - EvoAI Style Theme
+   Dark theme with green accents
+   ============================================ */
+
+@layer base {
+  :root {
+    /* EvoAI Color Palette */
+    --background: 0 0% 4%;
+    /* #0a0a0a */
+    --foreground: 0 0% 98%;
+    /* #fafafa */
+    --card: 0 0% 8%;
+    /* #141414 */
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary - Green */
+    --primary: 142 76% 36%;
+    /* #22c55e */
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary */
+    --secondary: 0 0% 15%;
+    /* #262626 */
+    --secondary-foreground: 0 0% 98%;
+
+    /* Muted */
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 64%;
+    /* #a3a3a3 */
+
+    /* Accent */
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Destructive */
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Borders */
+    --border: 0 0% 15%;
+    /* #262626 */
+    --input: 0 0% 15%;
+    --ring: 142 76% 36%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+/* ============================================
+   Background Styles
+   ============================================ */
+
+/* EvoAI Dark Background */
+.evo-bg {
+  background: #0a0a0a;
+}
+
+/* Alternative gradient background */
+.premium-bg {
+  background: linear-gradient(180deg, #0a0a0a 0%, #0f0f0f 50%, #0a0a0a 100%);
+}
+
+/* Grid Pattern Overlay */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(34, 197, 94, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 197, 94, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Subtle dot pattern like EvoAI */
+.dot-pattern {
+  background-image: radial-gradient(rgba(34, 197, 94, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* ============================================
+   Card Styles
+   ============================================ */
+
+.glass {
+  background: rgba(20, 20, 20, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(38, 38, 38, 0.8);
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(20, 20, 20, 0.9) 0%, rgba(15, 15, 15, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(38, 38, 38, 1);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+.glass-card-hover {
+  transition: all 0.3s ease;
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(34, 197, 94, 0.2);
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+/* ============================================
+   Neon Glow Effects
+   ============================================ */
+
+.neon-green {
+  box-shadow:
+    0 0 5px rgba(34, 197, 94, 0.5),
+    0 0 20px rgba(34, 197, 94, 0.3),
+    0 0 40px rgba(34, 197, 94, 0.1);
+}
+
+.neon-green-subtle {
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.15);
+}
+
+.neon-blue {
+  box-shadow:
+    0 0 5px rgba(59, 130, 246, 0.5),
+    0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.neon-orange {
+  box-shadow:
+    0 0 5px rgba(249, 115, 22, 0.5),
+    0 0 20px rgba(249, 115, 22, 0.3);
+}
+
+.neon-purple {
+  box-shadow:
+    0 0 5px rgba(139, 92, 246, 0.5),
+    0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+/* ============================================
+   Text & Gradient Styles
+   ============================================ */
+
+.gradient-text {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-white {
+  background: linear-gradient(135deg, #ffffff 0%, #a3a3a3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   Button Styles
+   ============================================ */
+
+.btn-primary {
+  @apply bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-xl transition-all;
+}
+
+.btn-secondary {
+  @apply bg-neutral-800 hover:bg-neutral-700 text-white font-medium px-4 py-2 rounded-xl transition-all border border-neutral-700;
+}
+
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: 0.5s;
+}
+
+.btn-shine:hover::before {
+  left: 100%;
+}
+
+/* ============================================
+   Input Styles
+   ============================================ */
+
+.input-dark {
+  @apply bg-neutral-900 border border-neutral-800 text-white placeholder-neutral-500 rounded-xl px-4 py-3 focus:outline-none focus:border-green-500 transition-colors;
+}
+
+.input-glow:focus {
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+}
+
+/* ============================================
+   Sidebar Styles
+   ============================================ */
+
+.sidebar-item {
+  @apply flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-neutral-400 hover:text-white hover:bg-neutral-800/50;
+}
+
+.sidebar-item.active {
+  @apply text-white bg-neutral-800;
+}
+
+.sidebar-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background: #22c55e;
+  border-radius: 0 4px 4px 0;
+}
+
+/* ============================================
+   Status Indicators
+   ============================================ */
+
+.status-online {
+  @apply w-2 h-2 rounded-full bg-green-500;
+  animation: pulse-green 2s infinite;
+}
+
+.status-offline {
+  @apply w-2 h-2 rounded-full bg-neutral-500;
+}
+
+.status-busy {
+  @apply w-2 h-2 rounded-full bg-orange-500;
+  animation: pulse-orange 2s infinite;
+}
+
+@keyframes pulse-green {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+  }
+}
+
+@keyframes pulse-orange {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgba(249, 115, 22, 0);
+  }
+}
+
+.pulse-dot {
+  animation: pulse-green 2s infinite;
+}
+
+/* ============================================
+   Flow Editor Styles (n8n-like)
+   ============================================ */
+
+.flow-canvas {
+  background-color: #0a0a0a;
+  background-image:
+    radial-gradient(circle, rgba(34, 197, 94, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.flow-node {
+  background: #141414;
+  border: 1px solid #262626;
+  border-radius: 12px;
+  padding: 12px 16px;
+  min-width: 200px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease;
+}
+
+.flow-node:hover {
+  border-color: rgba(34, 197, 94, 0.5);
+  box-shadow: 0 4px 20px rgba(34, 197, 94, 0.1);
+}
+
+.flow-node.selected {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
+}
+
+.flow-node-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.flow-node-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flow-node-trigger {
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+}
+
+.flow-node-message {
+  background: rgba(59, 130, 246, 0.2);
+  color: #3b82f6;
+}
+
+.flow-node-condition {
+  background: rgba(249, 115, 22, 0.2);
+  color: #f97316;
+}
+
+.flow-node-agent {
+  background: rgba(139, 92, 246, 0.2);
+  color: #8b5cf6;
+}
+
+.flow-node-end {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+.flow-handle {
+  width: 12px;
+  height: 12px;
+  background: #262626;
+  border: 2px solid #22c55e;
+  border-radius: 50%;
+}
+
+.flow-edge {
+  stroke: #22c55e;
+  stroke-width: 2;
+}
+
+/* ============================================
+   Chat Styles
+   ============================================ */
+
+.chat-message-user {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: white;
+  border-radius: 18px 18px 4px 18px;
+}
+
+.chat-message-bot {
+  background: #1a1a1a;
+  border: 1px solid #262626;
+  color: white;
+  border-radius: 18px 18px 18px 4px;
+}
+
+/* ============================================
+   Scrollbar Styles
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #404040;
+}
+
+/* ============================================
+   Modal Backdrop
+   ============================================ */
+
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease;
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s ease;
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
